@@ -245,7 +245,7 @@ cp "$KERNEL_WORKSPACE/kernel_platform/common/out/arch/arm64/boot/Image" ./AnyKer
 cd AnyKernel3 || error "Failed to enter AnyKernel3 directory"
 zip -r "AnyKernel3_${KSU_VERSION}_${DEVICE_NAME}_${KERNEL_SUFFIX}_SuKiSu.zip" ./* || error "Packaging failed"
 
-OUTPUT_DIR="$WORKSPACE/output"
+OUTPUT_DIR="/mnt/c/Kernel_Build"
 mkdir -p "$OUTPUT_DIR" || error "Failed to create output directory"
 
 cp "$KERNEL_WORKSPACE/kernel_platform/common/out/arch/arm64/boot/Image" "$OUTPUT_DIR/"
