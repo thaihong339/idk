@@ -24,7 +24,7 @@ DEVICE_NAME="oneplus_ace5"
 REPO_MANIFEST="oneplus_ace5.xml"
 
 # Custom kernel suffix
-read -p "Enter kernel name suffix (supports emoji/Chinese, press enter to use default): " input_suffix
+read -p "Enter kernel name suffix (supports emoji, press enter to use default): " input_suffix
 if [ -n "$input_suffix" ]; then
     KERNEL_SUFFIX="$input_suffix"
 fi
@@ -245,7 +245,7 @@ cp "$KERNEL_WORKSPACE/kernel_platform/common/out/arch/arm64/boot/Image" ./AnyKer
 cd AnyKernel3 || error "Failed to enter AnyKernel3 directory"
 zip -r "AnyKernel3_${KSU_VERSION}_${DEVICE_NAME}_${KERNEL_SUFFIX}_SuKiSu.zip" ./* || error "Packaging failed"
 
-OUTPUT_DIR="/mnt/c/Kernel_Build"
+OUTPUT_DIR="C:/Kernel_Build/${DEVICE_NAME}"
 mkdir -p "$OUTPUT_DIR" || error "Failed to create output directory"
 
 cp "$KERNEL_WORKSPACE/kernel_platform/common/out/arch/arm64/boot/Image" "$OUTPUT_DIR/"
