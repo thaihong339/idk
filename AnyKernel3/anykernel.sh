@@ -40,13 +40,6 @@ case $kernel_version in
     *) ksu_supported=false ;;
 esac
 
-ui_print "✈️本内核来自：TG@qdykernel"
-ui_print "✈️This Kernel From：TG@qdykernel"
-ui_print "🚫免费内核禁止一切收费行为"
-ui_print "🚫Free kernel.Stealing and selling to the death of the whole family"
-ui_print " " "  -> ksu_supported: $ksu_supported"
-$ksu_supported || abort "  -> Non-GKI device, abort."
-
 # boot install
 if [ -L "/dev/block/bootdevice/by-name/init_boot_a" -o -L "/dev/block/by-name/init_boot_a" ]; then
     split_boot # for devices with init_boot ramdisk
